@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Get') {
             steps {
-               sh "mvn dependency:get -DrepoUrl=http://localhost:8081/repository/maven-snapshots/ -Dartifact=org.springframework.samples:sprint-petclinic:2.3.0.BUILD-20201102.131440-1 -Ddest=component.jar"
+               sh 'mvn dependency:get -DrepoUrl=http://localhost:8081/ -DgroupId=org.springframework.samples -DartifactId=spring-petclinic -Dversion=2.3.0.BUILD-SNAPSHOT -Dpackaging=jar -Ddest=spring-petclinic.jar'
             }
         }
     }
