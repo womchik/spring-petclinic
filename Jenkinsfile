@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    tools {
+            maven "Maven"
+    }
     stages {
         stage('Build') {
             steps {
-               sh 'mvn -B compile'
+               sh 'mvn -B package -DskipTests=true'
             }
         }
         stage('Test') {

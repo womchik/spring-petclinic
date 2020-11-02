@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    tools {
+            maven "Maven"
+    }
+    stages {
+        stage('Get') {
+            steps {
+               sh "mvn dependency:get -DrepoUrl=http://localhost:8081 Dartifact=org.springframework.samples:sprint-petclinic:LATEST:jar -Ddest=component.jar"
+            }
+        }
+    }
+}
